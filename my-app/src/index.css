@@ -1,0 +1,16 @@
+:root{
+  --page-color: rgb(51, 110, 100);
+  --title-color: rgb(28, 59, 55);
+}
+
+body{
+  background-color: var(--page-color);
+}
+
+.ui-container{
+  text-align: center;
+  padding: 200px;
+  font-family:'Source Sans Pro', sans-serif;
+  font-size: 65px;
+  color: var(--title-color);
+}
