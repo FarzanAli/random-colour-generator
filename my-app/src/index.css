@@ -1,15 +1,106 @@
 :root{
   --page-color: rgb(51, 110, 100);
   --title-color: rgb(28, 59, 55);
+  --palette-color-1: rgb(0, 0, 0);
+  --palette-color-2: rgb(0, 0, 0);
+  --palette-color-3: rgb(0, 0, 0);
+  --palette-color-4: rgb(0, 0, 0);
+  --position: 0px;
 }
 
 body{
   background-color: var(--page-color);
 }
 
+.palette-container{
+  padding: 50px;
+  margin-left: 170px;
+}
+
+.palette1{
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  margin-left: 0px;
+  transition: margin-left 0.5s;
+  border-radius: 15px;
+  background-color: var(--palette-color-1);
+}
+.palette1:hover{
+  position: absolute;
+  width: 175px;
+  height: 175px;
+  margin-left: 58px;
+  transition: margin-left 0.5s;
+  border-radius: 15px;
+  background-color: var(--palette-color-1);
+}
+
+.palette2{
+  position: absolute;
+  margin-top: 58px;
+  margin-left: 58px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-2);
+}
+.palette2:hover{
+  position: absolute;
+  margin-top: 58px;
+  margin-left: 116px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-2);
+}
+
+.palette3{
+  position: absolute;
+  margin-top: 116px;
+  margin-left: 116px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-3);
+}
+.palette3:hover{
+  position: absolute;
+  margin-top: 116px;
+  margin-left: 174px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-3);
+}
+
+.palette4{
+  position: absolute;
+  margin-top: 174px;
+  margin-left: 174px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-4);
+}
+.palette4:hover{
+  position: absolute;
+  margin-left: 232px;
+  transition: margin-left 0.5s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+}
+
 .ui-container{
   text-align: center;
-  padding: 200px;
+  margin-top: 150px;
+  padding: 50px;
   font-family:'Source Sans Pro', sans-serif;
   font-size: 65px;
   color: var(--title-color);
