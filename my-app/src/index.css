@@ -9,7 +9,20 @@
 }
 
 body{
+  animation: fadeInAnimation ease 0.25s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+
   background-color: var(--page-color);
+}
+
+@keyframes fadeInAnimation{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
 }
 
 .palette-container{
@@ -30,7 +43,7 @@ body{
   position: absolute;
   width: 175px;
   height: 175px;
-  margin-left: 58px;
+  margin-left: 34px;
   transition: margin-left 0.5s;
   border-radius: 15px;
   background-color: var(--palette-color-1);
@@ -49,7 +62,7 @@ body{
 .palette2:hover{
   position: absolute;
   margin-top: 58px;
-  margin-left: 116px;
+  margin-left: 92px;
   transition: margin-left 0.5s;
   width: 175px;
   height: 175px;
@@ -70,7 +83,7 @@ body{
 .palette3:hover{
   position: absolute;
   margin-top: 116px;
-  margin-left: 174px;
+  margin-left: 150px;
   transition: margin-left 0.5s;
   width: 175px;
   height: 175px;
@@ -90,7 +103,7 @@ body{
 }
 .palette4:hover{
   position: absolute;
-  margin-left: 232px;
+  margin-left: 207px;
   transition: margin-left 0.5s;
   width: 175px;
   height: 175px;
