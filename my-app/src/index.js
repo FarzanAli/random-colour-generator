@@ -4,54 +4,73 @@ import './index.css';
 
 class MainPage extends React.Component{
   
-  render(){
-    const alphaDiff = [0, 20, 40, 50, 60, 80];
-
-    const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-    const createColor = (r, g, b, alphaDiff) => "rgb(" + (r - alphaDiff).toString() + ", " + 
-                                                        (g - alphaDiff).toString() + ", " + 
-                                                        (b - alphaDiff).toString() + ")";
-
-    function setColor(variable, color){
-      document.documentElement.style.setProperty(variable, color);
+  constructor(props){
+    super(props);
+    this.state = {
+      rgb: [0, 0, 0]
     }
+  }
 
-    let pageColor;
-    let titleColor;
-    let paletteColor1;
-    let paletteColor2;
-    let paletteColor3;
-    let paletteColor4;
+  // componentDidMount(){
+  //   this.startup();
+  // }
 
-    function updateColor(){
-      let r = random(0, 256);
-      let g = random(0, 256);
-      let b = random(0, 256);
 
-      pageColor = createColor(r, g, b, alphaDiff[0]);
-      titleColor = createColor(r, g, b, alphaDiff[4]);
-      paletteColor1 = createColor(r, g, b, alphaDiff[1]);
-      paletteColor2 = createColor(r, g, b, alphaDiff[2]);
-      paletteColor3 = createColor(r, g, b, alphaDiff[3]);
-      paletteColor4 = titleColor;
+  startup(){
+
+    let r;
+    let g;
+    let b;
+
+    function reset(){
+      const alphaDiff = [0, 20, 40, 50, 60, 80];
+
+      const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
+      const createColor = (r, g, b, alphaDiff) => "rgb(" + (r - alphaDiff).toString() + ", " + 
+                                                          (g - alphaDiff).toString() + ", " + 
+                                                          (b - alphaDiff).toString() + ")";
+
+      function setColor(variable, color){
+        document.documentElement.style.setProperty(variable, color);
+      }
+
+      r = random(0, 256);
+      g = random(0, 256);
+      b = random(0, 256);      
+
+      let pageColor = createColor(r, g, b, alphaDiff[0]);
+      let titleColor = createColor(r, g, b, alphaDiff[4]);
+      let paletteColor1 = createColor(r, g, b, alphaDiff[1]);
+      let paletteColor2 = createColor(r, g, b, alphaDiff[2]);
+      let paletteColor3 = createColor(r, g, b, alphaDiff[3]);
+      let paletteColor4 = titleColor;
 
       setColor("--page-color", pageColor);
-      setColor("--title-color", titleColor);
+      setColor("--text-color", titleColor);
       setColor("--palette-color-1", paletteColor1);
       setColor("--palette-color-2", paletteColor2);
       setColor("--palette-color-3", paletteColor3);
       setColor("--palette-color-4", paletteColor4);
     }
-
-    updateColor();
-    
-    document.addEventListener('keydown', function(event){
-      if(event.keyCode == 32){
-        console.log("MEOW")
-        updateColor();
+    document.addEventListener('keydown', (event) => {
+      if(event.key === " "){
+        console.log("S")
+        reset();
+        // this.state = {};
+        this.setState({rgb: [r, g, b]}, ()=>console.log(this.state));
       }
     });
+    reset();
+  }
 
+  render(){
+    this.startup();
+    
+    // console.log(document.documentElement.style.getPropertyValue("--page-color"))
+    // this.setState = ({
+    //   rgb: [document.documentElement.style.getPropertyValue("--page-color")]
+    // });
+    // console.log(this.state.length);
     return(
       <div>
         <div className="ui-container">
@@ -65,6 +84,10 @@ class MainPage extends React.Component{
           <div className="palette4"></div>
 
         </div>
+
+        <div className="description-container">
+          RGB: ({this.state.rgb[0]}, {this.state.rgb[1]}, {this.state.rgb[2]})
+        </div>
       </div>
     );
   }
@@ -72,6 +95,6 @@ class MainPage extends React.Component{
 }
 
 ReactDOM.render(
-  <MainPage />,
+  <MainPage/>,
   document.getElementById('root')
 )
