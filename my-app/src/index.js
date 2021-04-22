@@ -11,10 +11,15 @@ class MainPage extends React.Component{
     }
   }
 
-  // componentDidMount(){
-  //   this.startup();
-  // }
-
+  componentDidMount(){
+    document.addEventListener('keydown', (event) => {
+      if(event.key === " "){
+        this.startup();
+      }
+    });
+    
+    this.startup();
+  }
 
   startup(){
 
@@ -22,7 +27,6 @@ class MainPage extends React.Component{
     let g;
     let b;
 
-    function reset(){
       const alphaDiff = [0, 20, 40, 50, 60, 80];
 
       const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
@@ -51,26 +55,10 @@ class MainPage extends React.Component{
       setColor("--palette-color-2", paletteColor2);
       setColor("--palette-color-3", paletteColor3);
       setColor("--palette-color-4", paletteColor4);
-    }
-    document.addEventListener('keydown', (event) => {
-      if(event.key === " "){
-        console.log("S")
-        reset();
-        // this.state = {};
-        this.setState({rgb: [r, g, b]}, ()=>console.log(this.state));
-      }
-    });
-    reset();
+      this.setState({rgb: [r, g, b]}, ()=>console.log(this.state));
   }
 
   render(){
-    this.startup();
-    
-    // console.log(document.documentElement.style.getPropertyValue("--page-color"))
-    // this.setState = ({
-    //   rgb: [document.documentElement.style.getPropertyValue("--page-color")]
-    // });
-    // console.log(this.state.length);
     return(
       <div>
         <div className="ui-container">
