@@ -11,6 +11,7 @@ class MainPage extends React.Component{
     super(props);
     this.state = {
       rgb: [[], [], [], [], []],
+      hex: [[], [], [], [], []],
       showIndex: 0,
     }
   }
@@ -53,9 +54,9 @@ class MainPage extends React.Component{
     setColor("--palette-color-3", createCSSColor(r, g, b, alphaDiff[3]));
     setColor("--palette-color-4", createCSSColor(r, g, b, alphaDiff[4]));
 
-    function createRGB(r, g, b){
+    function createRGB(r, g, b, size){
       let array = [];
-      for(let i = 0; i < 5; i++){
+      for(let i = 0; i < size; i++){
         array.push([(r - alphaDiff[i]) > 0 ? (r - alphaDiff[i]) : 0,
                     (g - alphaDiff[i]) > 0 ? (g - alphaDiff[i]) : 0,
                     (b - alphaDiff[i]) > 0 ? (b - alphaDiff[i]) : 0]);
@@ -63,7 +64,20 @@ class MainPage extends React.Component{
       return array;
     }
     
-    this.setState({rgb : createRGB(r, g, b)});
+    function createHex(rgb){
+      let hex = []
+      for(let i = 0; i < rgb.length; i++){
+        hex.push("#" + (Math.floor(rgb[i][0]/16)).toString(16).toUpperCase() + (((rgb[i][0]/16) - Math.floor(rgb[i][0]/16))*16).toString(16).toUpperCase() + 
+                (Math.floor(rgb[i][1]/16)).toString(16).toUpperCase() + (((rgb[i][1]/16) - Math.floor(rgb[i][1]/16))*16).toString(16).toUpperCase() +
+                (Math.floor(rgb[i][2]/16)).toString(16).toUpperCase() + (((rgb[i][2]/16) - Math.floor(rgb[i][2]/16))*16).toString(16).toUpperCase())
+      }
+      return hex
+    }
+  
+    this.setState({
+      rgb : createRGB(r, g, b, this.state.rgb.length),
+      hex: createHex(createRGB(r, g, b, this.state.rgb.length))
+    });
   }
 
   handleCallbackPalletes = (palletesData) => {
@@ -78,6 +92,7 @@ class MainPage extends React.Component{
         <Palettes callback={this.handleCallbackPalletes}/>
         <Description
         rgb={this.state.rgb}
+        hex={this.state.hex}
         showIndex={this.state.showIndex}
         />
         </>
