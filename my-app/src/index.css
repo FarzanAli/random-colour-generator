@@ -9,7 +9,7 @@
 }
 
 body{
-  animation: fadeInAnimation ease 0.25s;
+  animation: fadeInAnimation ease 0.4s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
@@ -123,6 +123,9 @@ body{
 }
 
 .description-container{
+  animation: fadeInAnimation ease 0.4s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
   padding: 50px;
   float: right;
   margin-right: 120px;

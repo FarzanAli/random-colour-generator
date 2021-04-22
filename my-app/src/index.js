@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Header from './components/header';
 import Palettes from './components/palettes';
+import Description from './components/description';
 
 class MainPage extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-      rgb: [0, 0, 0]
+      rgb: [[], [], [], [], []],
+      showIndex: 0,
     }
   }
 
@@ -29,10 +31,10 @@ class MainPage extends React.Component{
     let g;
     let b;
 
-    const alphaDiff = [0, 20, 40, 50, 60, 80];
+    const alphaDiff = [0, 20, 40, 60, 80, 100];
 
     const random = (min, max) => Math.floor(Math.random() * (max - min)) + min;
-    const createColor = (r, g, b, alphaDiff) => "rgb(" + (r - alphaDiff).toString() + ", " + 
+    const createCSSColor = (r, g, b, alphaDiff) => "rgb(" + (r - alphaDiff).toString() + ", " + 
                                                         (g - alphaDiff).toString() + ", " + 
                                                         (b - alphaDiff).toString() + ")";
 
@@ -42,22 +44,30 @@ class MainPage extends React.Component{
 
     r = random(0, 256);
     g = random(0, 256);
-    b = random(0, 256);      
+    b = random(0, 256);
 
-    let pageColor = createColor(r, g, b, alphaDiff[0]);
-    let titleColor = createColor(r, g, b, alphaDiff[4]);
-    let paletteColor1 = createColor(r, g, b, alphaDiff[1]);
-    let paletteColor2 = createColor(r, g, b, alphaDiff[2]);
-    let paletteColor3 = createColor(r, g, b, alphaDiff[3]);
-    let paletteColor4 = titleColor;
+    setColor("--page-color", createCSSColor(r, g, b, alphaDiff[0]));
+    setColor("--text-color", createCSSColor(r, g, b, alphaDiff[4]));
+    setColor("--palette-color-1", createCSSColor(r, g, b, alphaDiff[1]));
+    setColor("--palette-color-2", createCSSColor(r, g, b, alphaDiff[2]));
+    setColor("--palette-color-3", createCSSColor(r, g, b, alphaDiff[3]));
+    setColor("--palette-color-4", createCSSColor(r, g, b, alphaDiff[4]));
 
-    setColor("--page-color", pageColor);
-    setColor("--text-color", titleColor);
-    setColor("--palette-color-1", paletteColor1);
-    setColor("--palette-color-2", paletteColor2);
-    setColor("--palette-color-3", paletteColor3);
-    setColor("--palette-color-4", paletteColor4);
-    this.setState({rgb: [r, g, b]});
+    function createRGB(r, g, b){
+      let array = [];
+      for(let i = 0; i < 5; i++){
+        array.push([(r - alphaDiff[i]) > 0 ? (r - alphaDiff[i]) : 0,
+                    (g - alphaDiff[i]) > 0 ? (g - alphaDiff[i]) : 0,
+                    (b - alphaDiff[i]) > 0 ? (b - alphaDiff[i]) : 0]);
+      }
+      return array;
+    }
+    
+    this.setState({rgb : createRGB(r, g, b)});
+  }
+
+  handleCallbackPalletes = (palletesData) => {
+    this.setState({showIndex: palletesData});
   }
 
   render(){
@@ -65,15 +75,16 @@ class MainPage extends React.Component{
       <div>
         <>
         <Header/>
-        <Palettes/>
-        <div className="description-container">
-          RGB: ({this.state.rgb[0]}, {this.state.rgb[1]}, {this.state.rgb[2]})
-        </div>
+        <Palettes callback={this.handleCallbackPalletes}/>
+        <Description
+        rgb={this.state.rgb}
+        showIndex={this.state.showIndex}
+        />
         </>
       </div>
     );
   }
-  
+
 }
 
 ReactDOM.render(
