@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Transition, animated} from 'react-spring';
 import './index.css';
 import Header from './components/header';
 import Palettes from './components/palettes';
 import Description from './components/description';
+import Copied from './components/copied';
 
 class MainPage extends React.Component{
 
@@ -13,6 +15,7 @@ class MainPage extends React.Component{
       rgb: [[], [], [], [], []],
       hex: [[], [], [], [], []],
       showIndex: 0,
+      toggleCopied: false,
     }
   }
 
@@ -27,7 +30,6 @@ class MainPage extends React.Component{
   }
 
   startup(){
-
     let r;
     let g;
     let b;
@@ -65,13 +67,13 @@ class MainPage extends React.Component{
     }
     
     function createHex(rgb){
-      let hex = []
+      let hex = [];
       for(let i = 0; i < rgb.length; i++){
         hex.push("#" + (Math.floor(rgb[i][0]/16)).toString(16).toUpperCase() + (((rgb[i][0]/16) - Math.floor(rgb[i][0]/16))*16).toString(16).toUpperCase() + 
                 (Math.floor(rgb[i][1]/16)).toString(16).toUpperCase() + (((rgb[i][1]/16) - Math.floor(rgb[i][1]/16))*16).toString(16).toUpperCase() +
-                (Math.floor(rgb[i][2]/16)).toString(16).toUpperCase() + (((rgb[i][2]/16) - Math.floor(rgb[i][2]/16))*16).toString(16).toUpperCase())
+                (Math.floor(rgb[i][2]/16)).toString(16).toUpperCase() + (((rgb[i][2]/16) - Math.floor(rgb[i][2]/16))*16).toString(16).toUpperCase());
       }
-      return hex
+      return hex;
     }
   
     this.setState({
@@ -80,8 +82,12 @@ class MainPage extends React.Component{
     });
   }
 
-  handleCallbackPalletes = (palletesData) => {
+  handleCallbackPalletesHover = (palletesData) => {
     this.setState({showIndex: palletesData});
+  }
+
+  handleCallbackPalletesClick = () => {
+    this.setState({toggleCopied: !this.state.toggleCopied});
   }
 
   render(){
@@ -89,17 +95,42 @@ class MainPage extends React.Component{
       <div>
         <>
         <Header/>
-        <Palettes callback={this.handleCallbackPalletes}/>
+
+        <Palettes
+        callbackHover={this.handleCallbackPalletesHover}
+        callbackClick={this.handleCallbackPalletesClick}
+        rgb={this.state.rgb}
+        hex={this.state.hex}
+        />
+        
         <Description
         rgb={this.state.rgb}
         hex={this.state.hex}
         showIndex={this.state.showIndex}
         />
+
+        <Transition
+          items={this.state.toggleCopied}
+          from={{ opacity: 0 }}
+          enter={{ opacity: 1 }}
+          leave={{ opacity: 0 }}
+          onRest={() => 
+            this.setState({toggleCopied: false})
+          }
+          >
+          {
+          
+          (styles, item) =>
+            item && 
+            <animated.div style={styles}>
+              <Copied/>
+            </animated.div>
+          }
+        </Transition>
         </>
       </div>
     );
   }
-
 }
 
 ReactDOM.render(

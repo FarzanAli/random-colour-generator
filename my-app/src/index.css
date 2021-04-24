@@ -9,9 +9,9 @@
 }
 
 body{
-  animation: fadeInAnimation ease 0.4s;
+  /* animation: fadeInAnimation ease 0.4s;
   animation-iteration-count: 1;
-  animation-fill-mode: forwards;
+  animation-fill-mode: forwards; */
 
   background-color: var(--page-color);
   font-family:'Source Sans Pro', sans-serif;
@@ -39,7 +39,7 @@ body{
   width: 175px;
   height: 175px;
   margin-left: 0px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   border-radius: 15px;
   background-color: var(--palette-color-1);
 }
@@ -48,7 +48,7 @@ body{
   width: 175px;
   height: 175px;
   margin-left: 34px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   border-radius: 15px;
   background-color: var(--palette-color-1);
 }
@@ -57,7 +57,7 @@ body{
   position: absolute;
   margin-top: 58px;
   margin-left: 58px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -67,7 +67,7 @@ body{
   position: absolute;
   margin-top: 58px;
   margin-left: 92px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -78,7 +78,7 @@ body{
   position: absolute;
   margin-top: 116px;
   margin-left: 116px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -88,7 +88,7 @@ body{
   position: absolute;
   margin-top: 116px;
   margin-left: 150px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -99,7 +99,7 @@ body{
   position: absolute;
   margin-top: 174px;
   margin-left: 174px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -108,7 +108,7 @@ body{
 .palette4:hover{
   position: absolute;
   margin-left: 207px;
-  transition: margin-left 0.5s;
+  transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
@@ -123,9 +123,6 @@ body{
 }
 
 .description-container{
-  animation: fadeInAnimation ease 0.4s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
   padding: 50px;
   float: right;
   margin-right: 120px;
