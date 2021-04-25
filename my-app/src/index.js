@@ -111,6 +111,7 @@ class MainPage extends React.Component{
 
         <Transition
           items={this.state.toggleCopied}
+          config={{friction:20, clamp: true}}
           from={{ opacity: 0 }}
           enter={{ opacity: 1 }}
           leave={{ opacity: 0 }}
@@ -119,7 +120,6 @@ class MainPage extends React.Component{
           }
           >
           {
-          
           (styles, item) =>
             item && 
             <animated.div style={styles}>
@@ -127,6 +127,10 @@ class MainPage extends React.Component{
             </animated.div>
           }
         </Transition>
+        
+        <div class="footer">
+          Press Spacebar
+        </div>
         </>
       </div>
     );
