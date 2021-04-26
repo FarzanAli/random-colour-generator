@@ -97,37 +97,39 @@ class MainPage extends React.Component{
         <Header/>
         
         <div className="main-content">
-        <Palettes
-        callbackHover={this.handleCallbackPalletesHover}
-        callbackClick={this.handleCallbackPalletesClick}
-        rgb={this.state.rgb}
-        hex={this.state.hex}
-        />
-        <Description
-        rgb={this.state.rgb}
-        hex={this.state.hex}
-        showIndex={this.state.showIndex}
-        />
-        </div>
+        
+          <Transition
+            items={this.state.toggleCopied}
+            config={{friction:20, clamp: true}}
+            from={{ opacity: 0 }}
+            enter={{ opacity: 1 }}
+            leave={{ opacity: 0 }}
+            onRest={() => 
+              this.setState({toggleCopied: false})
+            }
+            >
+            {
+            (styles, item) =>
+              item && 
+              <animated.div style={styles}>
+                <Copied/>
+              </animated.div>
+            }
+          </Transition>
 
-        <Transition
-          items={this.state.toggleCopied}
-          config={{friction:20, clamp: true}}
-          from={{ opacity: 0 }}
-          enter={{ opacity: 1 }}
-          leave={{ opacity: 0 }}
-          onRest={() => 
-            this.setState({toggleCopied: false})
-          }
-          >
-          {
-          (styles, item) =>
-            item && 
-            <animated.div style={styles}>
-              <Copied/>
-            </animated.div>
-          }
-        </Transition>
+          <Palettes
+          callbackHover={this.handleCallbackPalletesHover}
+          callbackClick={this.handleCallbackPalletesClick}
+          rgb={this.state.rgb}
+          hex={this.state.hex}
+          />
+          
+          <Description
+          rgb={this.state.rgb}
+          hex={this.state.hex}
+          showIndex={this.state.showIndex}
+          />
+        </div>
         <div className="footer">
           Press Spacebar
         </div>

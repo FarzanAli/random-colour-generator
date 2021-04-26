@@ -36,12 +36,13 @@ body{
   display: inline-block;
   padding-top: 15px;
   padding-right: 130px;
+  padding-bottom: 80px;
   width: 350px;
   height: 400px;
 }
 .copy-container{
   position: absolute;
-  display: inline-block;
+  margin-left: 330px;
   padding: 20px;
   width: 80px;
   height: 80px;
@@ -49,7 +50,6 @@ body{
 .description-container{
   position: absolute;
   display: inline-block;
-
   width: 400px;
   height: 200px;
   font-size: 50px;
