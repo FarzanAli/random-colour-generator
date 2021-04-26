@@ -91,29 +91,52 @@ body{
   background-color: var(--text-color);
 }
 
-.palette1{
+.palette{
   position: absolute;
   width: 175px;
   height: 175px;
   margin-left: 0px;
   transition: margin-left 0.25s;
+  border: 6px solid var(--text-color);
   border-radius: 15px;
-  background-color: var(--palette-color-1);
+  background-color: var(--palette-color);
 }
-.palette1:hover{
+.palette:hover{
   position: absolute;
   width: 175px;
   height: 175px;
   margin-left: 34px;
   transition: margin-left 0.25s;
+  border: 6px solid var(--text-color);
+  border-radius: 15px;
+  background-color: var(--palette-color);
+}
+
+.palette1{
+  position: absolute;
+  margin-top: 58px;
+  margin-left: 58px;
+  transition: margin-left 0.25s;
+  width: 175px;
+  height: 175px;
+  border-radius: 15px;
+  background-color: var(--palette-color-1);
+}
+.palette1:hover{
+  position: absolute;
+  margin-top: 58px;
+  margin-left: 92px;
+  transition: margin-left 0.25s;
+  width: 175px;
+  height: 175px;
   border-radius: 15px;
   background-color: var(--palette-color-1);
 }
 
 .palette2{
   position: absolute;
-  margin-top: 58px;
-  margin-left: 58px;
+  margin-top: 116px;
+  margin-left: 116px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
@@ -122,8 +145,8 @@ body{
 }
 .palette2:hover{
   position: absolute;
-  margin-top: 58px;
-  margin-left: 92px;
+  margin-top: 116px;
+  margin-left: 150px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
@@ -133,8 +156,8 @@ body{
 
 .palette3{
   position: absolute;
-  margin-top: 116px;
-  margin-left: 116px;
+  margin-top: 174px;
+  margin-left: 174px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
@@ -143,8 +166,7 @@ body{
 }
 .palette3:hover{
   position: absolute;
-  margin-top: 116px;
-  margin-left: 150px;
+  margin-left: 207px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
@@ -154,8 +176,8 @@ body{
 
 .palette4{
   position: absolute;
-  margin-top: 174px;
-  margin-left: 174px;
+  margin-top: 232px;
+  margin-left: 232px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
@@ -164,11 +186,12 @@ body{
 }
 .palette4:hover{
   position: absolute;
-  margin-left: 207px;
+  margin-left: 290px;
   transition: margin-left 0.25s;
   width: 175px;
   height: 175px;
   border-radius: 15px;
+  background-color: var(--palette-color-4);
 }
 
 .ui-container{
