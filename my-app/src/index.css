@@ -8,6 +8,7 @@
   --palette-color-3: rgb(185, 105, 26);
   --palette-color-4: rgb(165, 85, 6);
   --position: 0px;
+  --palette-size: 175px;
 }
 
 body{
@@ -25,31 +26,42 @@ body{
   }
 }
 
+.header{
+  position: fixed;
+  text-align: center;
+  margin-top: 3%;
+  top: 0;
+  width: 100%;
+  color: var(--text-color);
+  font-size: 80px;
+}
+
 .main-content{
   position: absolute;
-  justify-content: center;
-  width: 30%;
-  margin-left: 32%;
+  top: 31%;
+  width: 38%;
+  left: 28%;
 }
 .palette-container{
   position: relative;
   display: inline-block;
-  padding-top: 15px;
-  padding-right: 270px;
-  padding-bottom: 80px;
-  width: 350px;
+  padding: 5%;
+  padding-top: 2%;
+  padding-bottom: 21%;
+  width: 400px;
   height: 400px;
 }
 .copy-container{
   position: absolute;
-  margin-left: 450px;
-  padding: 20px;
-  width: 80px;
+  left: 55%;
+  padding: 3%;
+  width: 10px;
   height: 80px;
 }
 .description-container{
   position: absolute;
   display: inline-block;
+  left: 70%;
   width: 400px;
   height: 200px;
   font-size: 50px;
@@ -117,8 +129,8 @@ body{
   margin-top: 58px;
   margin-left: 58px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-1);
 }
@@ -127,8 +139,8 @@ body{
   margin-top: 58px;
   margin-left: 92px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-1);
 }
@@ -138,8 +150,8 @@ body{
   margin-top: 116px;
   margin-left: 116px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-2);
 }
@@ -148,8 +160,8 @@ body{
   margin-top: 116px;
   margin-left: 150px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-2);
 }
@@ -159,8 +171,8 @@ body{
   margin-top: 174px;
   margin-left: 174px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-3);
 }
@@ -168,8 +180,8 @@ body{
   position: absolute;
   margin-left: 207px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-3);
 }
@@ -179,8 +191,8 @@ body{
   margin-top: 232px;
   margin-left: 232px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-4);
 }
@@ -188,18 +200,10 @@ body{
   position: absolute;
   margin-left: 290px;
   transition: margin-left 0.25s;
-  width: 175px;
-  height: 175px;
+  width: var(--palette-size);
+  height: var(--palette-size);
   border-radius: 15px;
   background-color: var(--palette-color-4);
-}
-
-.ui-container{
-  text-align: center;
-  margin-top: 50px;
-  padding: 50px;
-  font-size: 80px;
-  color: var(--text-color);
 }
 
 .footer{
