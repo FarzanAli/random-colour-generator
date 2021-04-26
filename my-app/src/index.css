@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&family=Source+Sans+Pro:ital,wght@0,900;1,900&display=swap');
 
 :root{
-  --page-color: rgb(51, 110, 100);
-  --text-color: rgb(28, 59, 55);
-  --palette-color-1: rgb(0, 0, 0);
-  --palette-color-2: rgb(0, 0, 0);
-  --palette-color-3: rgb(0, 0, 0);
-  --palette-color-4: rgb(0, 0, 0);
+  --page-color: rgb(245, 165, 86);
+  --text-color: rgb(165, 85, 6);
+  --palette-color-1: rgb(225, 145, 66);
+  --palette-color-2: rgb(205, 125, 46);
+  --palette-color-3: rgb(185, 105, 26);
+  --palette-color-4: rgb(165, 85, 6);
   --position: 0px;
 }
 
@@ -93,8 +93,8 @@ body{
 
 .palette{
   position: absolute;
-  width: 175px;
-  height: 175px;
+  width: 169px;
+  height: 169px;
   margin-left: 0px;
   transition: margin-left 0.25s;
   border: 6px solid var(--text-color);
@@ -103,8 +103,8 @@ body{
 }
 .palette:hover{
   position: absolute;
-  width: 175px;
-  height: 175px;
+  width: 169px;
+  height: 169px;
   margin-left: 34px;
   transition: margin-left 0.25s;
   border: 6px solid var(--text-color);

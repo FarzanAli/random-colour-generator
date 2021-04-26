@@ -12,8 +12,8 @@ class MainPage extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      rgb: [[], [], [], [], []],
-      hex: [[], [], [], [], []],
+      rgb: [[245, 165, 86], [225, 145, 66], [205, 125, 46], [185, 105, 26], [165, 85, 6]],
+      hex: [['#F5A556'], ['#E19142'], ['#CD7D2E'], ['#B9691A'], ['#A55506']],
       showIndex: 0,
       toggleCopied: false,
     }
@@ -25,8 +25,6 @@ class MainPage extends React.Component{
         this.startup();
       }
     });
-
-    this.startup();
   }
 
   startup(){
