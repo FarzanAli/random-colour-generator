@@ -95,19 +95,20 @@ class MainPage extends React.Component{
       <div>
         <>
         <Header/>
-
+        
+        <div className="main-content">
         <Palettes
         callbackHover={this.handleCallbackPalletesHover}
         callbackClick={this.handleCallbackPalletesClick}
         rgb={this.state.rgb}
         hex={this.state.hex}
         />
-        
         <Description
         rgb={this.state.rgb}
         hex={this.state.hex}
         showIndex={this.state.showIndex}
         />
+        </div>
 
         <Transition
           items={this.state.toggleCopied}
@@ -127,8 +128,7 @@ class MainPage extends React.Component{
             </animated.div>
           }
         </Transition>
-        
-        <div class="footer">
+        <div className="footer">
           Press Spacebar
         </div>
         </>

@@ -25,32 +25,37 @@ body{
   }
 }
 
+.main-content{
+  position: absolute;
+  justify-content: center;
+  width: 30%;
+  margin-left: 35%;
+}
 .palette-container{
   position: relative;
   display: inline-block;
-  margin-left: 30%;
-  padding: 50px;
-  width: 300px;
+  padding-top: 15px;
+  padding-right: 130px;
+  width: 350px;
   height: 400px;
 }
-
-.description-container{
-  position: absolute;
-  display: inline-block;  
-  margin-left: 0%;
-  margin-right: 50%;
-  width: 400px;
-  height: 400px;
-  padding: 50px;
-  font-size: 50px;
-  color: var(--text-color);
-}
-
 .copy-container{
+  position: absolute;
+  display: inline-block;
   padding: 20px;
   width: 80px;
   height: 80px;
 }
+.description-container{
+  position: absolute;
+  display: inline-block;
+
+  width: 400px;
+  height: 200px;
+  font-size: 50px;
+  color: var(--text-color);
+}
+
 .copy1{
   position: absolute;
   width: 40px;
