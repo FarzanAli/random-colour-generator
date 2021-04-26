@@ -29,20 +29,20 @@ body{
   position: absolute;
   justify-content: center;
   width: 30%;
-  margin-left: 35%;
+  margin-left: 29%;
 }
 .palette-container{
   position: relative;
   display: inline-block;
   padding-top: 15px;
-  padding-right: 130px;
+  padding-right: 270px;
   padding-bottom: 80px;
   width: 350px;
   height: 400px;
 }
 .copy-container{
   position: absolute;
-  margin-left: 330px;
+  margin-left: 450px;
   padding: 20px;
   width: 80px;
   height: 80px;
