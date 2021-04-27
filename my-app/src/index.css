@@ -8,7 +8,7 @@
   --palette-color-3: rgb(185, 105, 26);
   --palette-color-4: rgb(165, 85, 6);
   --position: 0px;
-  --palette-size: 40%;
+  --palette-size: 175px;
 }
 
 body{
@@ -54,8 +54,7 @@ body{
 }
 .copy-container{
   position: absolute;
-  margin-left: 50%;
-  padding: 3%;
+  left: 10;
   width: 10px;
   height: 10px;
 }

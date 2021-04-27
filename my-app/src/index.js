@@ -92,11 +92,7 @@ class MainPage extends React.Component{
     return(
       <div>
         <>
-        <Header/>
-        
-        <div className="main-content">
-        
-          <Transition
+        <Transition
             items={this.state.toggleCopied}
             config={{friction:20, clamp: true}}
             from={{ opacity: 0 }}
@@ -114,7 +110,9 @@ class MainPage extends React.Component{
               </animated.div>
             }
           </Transition>
+        <Header/>        
 
+        <div className="main-content">
           <Palettes
           callbackHover={this.handleCallbackPalletesHover}
           callbackClick={this.handleCallbackPalletesClick}
